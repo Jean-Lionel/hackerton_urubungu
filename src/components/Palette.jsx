@@ -18,6 +18,7 @@ const Pallete = ({user}) => {
             cursor: "pointer",
 
           }} 
+          className="cart"
          src={`/images/${e}.png`} alt="Cart" />       
       ))}
     </div>

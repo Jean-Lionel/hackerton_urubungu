@@ -29,9 +29,9 @@ const HomePage = () => {
     {
      
       users.map((user, index) => (
-        <div key={index}>
+        <div key={index} className="parent-container">
           <Pallete user={user}/>         
-          {index !== users.length - 1 && <Agapata />}
+          {index !== users.length - 1 && <Agapata  />}
         </div>
       ))
     }
