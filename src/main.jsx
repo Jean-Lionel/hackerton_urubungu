@@ -17,14 +17,14 @@ const IntlApp = () => {
     const locale = useSelector(localeSelector)
     var messages
     switch (locale) {
-              case 'ki':
-                        messages = KIRUNDI
+              case 'fr':
+                        messages = FRANCAIS
                         break
               default:
-                        messages = FRANCAIS
+                        messages = KIRUNDI
     }
     return (
-              <IntlProvider messages={messages} locale={locale} defaultLocale="fr">
+              <IntlProvider messages={messages} locale={locale} defaultLocale="ki">
                         <App />
               </IntlProvider>
     )

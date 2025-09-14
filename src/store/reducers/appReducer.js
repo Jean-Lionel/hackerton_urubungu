@@ -2,7 +2,7 @@
 export const SET_LOCALE  = "SET_LOCALE"
 
 const initial = {
-          locale: "fr"
+          locale: "ki"
 }
 export default function appReducer(contributionState = initial, action) {
           switch (action.type) {

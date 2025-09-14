@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-    import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import WelcomePallette from '../components/WelcomePallette';
+import { useIntl } from "react-intl";
 
 const JeuxPage = () => {
   const [gameConfig, setGameConfig] = useState({
@@ -10,6 +11,8 @@ const JeuxPage = () => {
     case3: '',
     case4: ''
   });
+
+  const intl = useIntl();
 
   const navigate = useNavigate();
 
@@ -44,14 +47,14 @@ const JeuxPage = () => {
   return (
     <>
       <div className="setup-container">
-        <h1 className="setup-title">🎮 Configuration du Jeu</h1>
+        <h1 className="setup-title"> 🎮 {intl.formatMessage({ id: 'JeuPage.configure' })} </h1>
         
         <div className="form-group">
-          <label className="form-label">Nom d'utilisateur :</label>
+          <label className="form-label">{intl.formatMessage({ id: 'JeuPage.username' })} :</label>
           <input
             type="text"
             className="form-input"
-            placeholder="Entrez votre nom..."
+            placeholder={`${intl.formatMessage({ id: 'JeuPage.plaholerusername' })}`}
             value={gameConfig.username}
             onChange={(e) => handleInputChange('username', e.target.value)}
           />
@@ -66,7 +69,7 @@ const JeuxPage = () => {
         </div>
 
         <button className="start-button" onClick={handleStartGame}>
-           COMMENCER LE JEU
+           {intl.formatMessage({ id: 'JeuPage.commencez' })}
         </button>
       </div>
     
