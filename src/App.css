@@ -209,3 +209,17 @@
   font-size: 20px;
 }
 }
+
+.start-button{
+  cursor: pointer;
+  width: 20%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}

@@ -6,8 +6,12 @@ import Agapata from '../components/Agapata.jsx';
 import ApiService from '../services/api';
 import { API_CONFIG } from '../config/config.js';
 import { LocalStorage } from '../config/localStorage.js';
+import { useIntl } from "react-intl";
+import beep from '../assets/audio/beep.mp3';
 
 const HomePage = () => {
+
+  const Intl = useIntl();
 
   const [users, setUsers] = useState([
     {
@@ -36,10 +40,7 @@ const HomePage = () => {
         const username = localStorage.getItem(LocalStorage.USERNAME);
         console.log("positions",positions);
         console.log("currentPion", currentPion);
-        
-      
         setUsers([
-         
           {
             id : 2,
             cases :  JSON.parse(positions),
@@ -47,6 +48,12 @@ const HomePage = () => {
           },
         ]);
       }
+    }
+
+  const startGame = () => {
+    const audio = new Audio(beep);
+    audio.play();
+      
     }
   return (
     <div>
@@ -59,7 +66,13 @@ const HomePage = () => {
           {index !== users.length - 1 && <Agapata  />}
         </div>
       ))
-    }
+      }
+      
+      <div>
+        <button  className='start-button' onClick={() =>startGame()}>
+          {Intl.formatMessage({ id: 'JeuPage.jouer' })}
+        </button>
+      </div>
       
     </div>
   );
