@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
     import { useNavigate } from 'react-router-dom';
+import WelcomePallette from '../components/WelcomePallette';
 
 const JeuxPage = () => {
   const [gameConfig, setGameConfig] = useState({
@@ -56,63 +57,9 @@ const JeuxPage = () => {
           />
         </div>
 
-        <div style={{ margin: '20px 0', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '5px', fontSize: '14px', color: '#1976d2' }}>
-          <strong>   Règle :</strong> Répartissez exactement 16 pièces noires dans les 4 premières cases
-        </div>
+        
 
-        <div className="cases-grid">
-          <div className="case-input-group">
-            <div className="case-label">Case 1</div>
-            <input
-              type="number"
-              className="number-input"
-              placeholder="0"
-              min="0"
-              max="16"
-              value={gameConfig.case1}
-              onChange={(e) => handleInputChange('case1', parseInt(e.target.value) || 0)}
-            />
-          </div>
-
-          <div className="case-input-group">
-            <div className="case-label">Case 2</div>
-            <input
-              type="number"
-              className="number-input"
-              placeholder="0"
-              min="0"
-              max="16"
-              value={gameConfig.case2}
-              onChange={(e) => handleInputChange('case2', parseInt(e.target.value) || 0)}
-            />
-          </div>
-
-          <div className="case-input-group">
-            <div className="case-label">Case 3</div>
-            <input
-              type="number"
-              className="number-input"
-              placeholder="0"
-              min="0"
-              max="16"
-              value={gameConfig.case3}
-              onChange={(e) => handleInputChange('case3', parseInt(e.target.value) || 0)}
-            />
-          </div>
-
-          <div className="case-input-group">
-            <div className="case-label">Case 4</div>
-            <input
-              type="number"
-              className="number-input"
-              placeholder="0"
-              min="0"
-              max="16"
-              value={gameConfig.case4}
-              onChange={(e) => handleInputChange('case4', parseInt(e.target.value) || 0)}
-            />
-          </div>
-        </div>
+      
 
         <div className={`total-display ${totalPieces === 16 ? 'total-valid' : 'total-invalid'}`}>
           Total : {totalPieces} / 16 pièces noires
@@ -122,6 +69,8 @@ const JeuxPage = () => {
            COMMENCER LE JEU
         </button>
       </div>
+    
+      <WelcomePallette/>
     </>
   );
 };
