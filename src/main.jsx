@@ -13,8 +13,12 @@ import store from './store/index.js'
 import { localeSelector } from './store/selectors/appSelectors.js'
 import { BrowserRouter } from 'react-router-dom'
 
+
+
 const IntlApp = () => {
-    const locale = useSelector(localeSelector)
+
+  const locale = useSelector(localeSelector)
+  localStorage.setItem('locale', locale);
     var messages
     switch (locale) {
               case 'fr':

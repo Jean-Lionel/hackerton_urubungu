@@ -9,6 +9,7 @@ const JeuxPage = () => {
     username: '',
 
   });
+  const [positions, setPostions] = useState()
 
   const intl = useIntl();
 
@@ -34,6 +35,16 @@ const JeuxPage = () => {
     console.log('Configuration du jeu:', gameConfig);
     // Local Storage
     localStorage.setItem(LocalStorage.START_GAME,1);
+   
+    // console.log(positions)
+    
+    window.socket.send(JSON.stringify({
+      "action": "startGame",
+      "username": gameConfig.username ,
+      "data": {
+          positions
+      }
+    }))
     navigate('/home')
 
   };
@@ -65,7 +76,7 @@ const JeuxPage = () => {
         </div>
       </div>
     
-      <WelcomePallette currentPion={(e)=>setCurrentPion(e)}/>
+      <WelcomePallette currentPion={(e)=>setCurrentPion(e)} setPositionData={(e) => setPostions(e)}/>
     </>
   );
 };

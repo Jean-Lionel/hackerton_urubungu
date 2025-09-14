@@ -9,5 +9,27 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.socket = new WebSocket(`http://localhost:8765/`);
+      window.socket.onopen = function(e) {
+          console.log("[open] Connection established");
+      };
+      window.socket.onmessage = function(event) {
+        // window.alert(JSON.stringify(event));
+          console.log("Socket Io value ",event)
+      };  
+      window.socket.onclose = function(event) {
+          if (event.wasClean) {
+              console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+          } else {
+              console.log('[close] Connection died');
+              console.log(`[close] ${JSON.stringify(event)}`);
+          }
+      };
+      window.socket.onerror = function(error) {
+          console.log(`[error] ${JSON.stringify(error)}`);
+      };
+    </script>
   </body>
+  
 </html>

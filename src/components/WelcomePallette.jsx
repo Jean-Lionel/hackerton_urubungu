@@ -3,7 +3,7 @@ import Pallete from './Palette';
 import { LocalStorage } from '../config/localStorage';
 import { useIntl } from "react-intl";
 
-function WelcomePallette({currentPion}) {
+function WelcomePallette({currentPion,setPositionData}) {
     const maxPions = 32;
     const [pions, setPion] = useState([
         15,14,13,12,11,10,9,8,
@@ -45,6 +45,10 @@ function WelcomePallette({currentPion}) {
         localStorage.setItem(LocalStorage.CURRENT_PION, parseInt(pionsRestant));
         localStorage.setItem(LocalStorage.UMUKENYURO, JSON.stringify(positions));
     }, [positions,currentPion,pionsRestant]);
+
+    useEffect(()=>{
+        setPositionData(positions)
+    },[positions,setPositionData])
     
 
     return (
