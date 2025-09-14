@@ -110,7 +110,7 @@
   }
 
   .start-button {
-    width: 100%;
+    width: 92%;
     padding: 15px;
     background-color: #4CAF50;
     color: white;
@@ -210,7 +210,7 @@
 }
 }
 
-.start-button{
+/* .start-button{
   cursor: pointer;
   width: 20%;
   padding: 15px;
@@ -222,4 +222,4 @@
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
-}
+} */

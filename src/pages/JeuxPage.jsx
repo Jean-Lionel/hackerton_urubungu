@@ -57,12 +57,12 @@ const JeuxPage = () => {
         </div>
 
         <div className={`total-display ${currentPion === 32 ? 'total-valid' : 'total-invalid'}`}>
-          Total : {currentPion} / 32 pièces noires
+          {intl.formatMessage({ id: 'WelcomePallete.Total' })} : {currentPion} / 32 {intl.formatMessage({ id: 'WelcomePallete.PiecesRestantes' })}
         </div>
 
-        <button className="start-button" onClick={handleStartGame}>
+        <div className="start-button" onClick={handleStartGame}>
            {intl.formatMessage({ id: 'JeuPage.commencez' })}
-        </button>
+        </div>
       </div>
     
       <WelcomePallette currentPion={(e)=>setCurrentPion(e)}/>

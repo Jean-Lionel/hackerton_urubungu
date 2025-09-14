@@ -4,5 +4,11 @@
     "JeuPage.username":"Izina ryawe murukino",
     "JeuPage.plaholerusername":"Injizamwo izina ryawe ...",
     "JeuPage.commencez":"Tungara urukino",
-    "JeuPage.jouer":"Kina"
+    "JeuPage.jouer":"Kina",
+    "WelcomePallete.regle":"Ivyitonderwa",
+    "WelcomePallete.condition":"Gabagura neza ubusoro 32 mubunogo 16 bwose butangura",
+    "WelcomePallete.Total":"Vyose hamwe",
+    "WelcomePallete.PiecesRestantes":"Ubusoro busigaye",
+    "WelcomePallete.reset":"Gusubiramwo vyose"
+    
 }

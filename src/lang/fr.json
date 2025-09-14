@@ -4,5 +4,10 @@
     "JeuPage.username":"Nom d'utilisateur ",
     "JeuPage.plaholerusername":"Entrez votre nom...",
     "JeuPage.commencez":"Commencer le Jeu",
-    "JeuPage.jouer":"Jouer"
+    "JeuPage.jouer":"Jouer",
+    "WelcomePallete.regle":"Règle",
+    "WelcomePallete.condition":"Répartissez exactement 32 pièces noires dans les 16 premières cases",
+    "WelcomePallete.Total":"Total",
+    "WelcomePallete.PiecesRestantes":"pièces  restantes",
+    "WelcomePallete.reset":"Reinitialiser"
 }

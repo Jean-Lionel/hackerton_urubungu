@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Pallete from './Palette';
 import { LocalStorage } from '../config/localStorage';
+import { useIntl } from "react-intl";
 
 function WelcomePallette({currentPion}) {
     const maxPions = 32;
@@ -34,6 +35,8 @@ function WelcomePallette({currentPion}) {
         setPositions(newPositions);
     };
 
+     const intl = useIntl();
+
 
     useEffect(() => {
         const total = positions.reduce((total, pion) => total + parseInt(pion), 0);
@@ -47,8 +50,8 @@ function WelcomePallette({currentPion}) {
     return (
         <>
         <div style={{ margin: '20px 0', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '5px', fontSize: '14px', color: '#1976d2' }}>
-                <strong>   Règle :</strong> Répartissez exactement 32 pièces noires dans les 16 premières cases <br />
-                <strong>   Total :</strong> {pionsRestant}/32 pièces  restantes
+                <strong>   {intl.formatMessage({ id: 'WelcomePallete.regle' })} :</strong> {intl.formatMessage({ id: 'WelcomePallete.condition' })} <br />
+                <strong>   {intl.formatMessage({ id: 'WelcomePallete.Total' })} :</strong> {pionsRestant}/32 {intl.formatMessage({ id: 'WelcomePallete.PiecesRestantes' })}
         </div>
         <div>
                 <Pallete user={{cases: positions, color: "red"}}/>
@@ -74,7 +77,7 @@ function WelcomePallette({currentPion}) {
           }
     </div>
     <button onClick={() => setPositions([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])}
-            style={{ margin: '20px 0', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '5px', fontSize: '14px', color: '#1976d2' , cursor: 'pointer', border: 'none', outline: 'none', fontWeight: 'bold', width: '100%', textAlign: 'center', marginTop: '20px'}}>reset</button>
+            style={{ margin: '20px 0', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '5px', fontSize: '14px', color: '#1976d2' , cursor: 'pointer', border: 'none', outline: 'none', fontWeight: 'bold', width: '100%', textAlign: 'center', marginTop: '20px'}}>{intl.formatMessage({ id: 'WelcomePallete.reset' })}</button>
     </>
   )
 }
