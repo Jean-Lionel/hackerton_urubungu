@@ -36,16 +36,13 @@ const HomePage = () => {
         const username = localStorage.getItem(LocalStorage.USERNAME);
         console.log("positions",positions);
         console.log("currentPion", currentPion);
+        
       
         setUsers([
-          {
-            id : 1,
-            cases : [1,0,0,8,0,0,2,0,0,0,0,0,0,0,0,0],
-            color : "red"
-          },
+         
           {
             id : 2,
-            cases : [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            cases :  JSON.parse(positions),
             color : "blue"
           },
         ]);
@@ -53,6 +50,7 @@ const HomePage = () => {
     }
   return (
     <div>
+
     {
      
       users.map((user, index) => (

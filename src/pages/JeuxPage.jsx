@@ -7,10 +7,7 @@ import { useIntl } from "react-intl";
 const JeuxPage = () => {
   const [gameConfig, setGameConfig] = useState({
     username: '',
-    case1: '',
-    case2: '',
-    case3: '',
-    case4: ''
+
   });
 
   const intl = useIntl();
@@ -33,10 +30,7 @@ const JeuxPage = () => {
     }
     //alert('Le total doit être exactement 32 pièces noires ' + currentPion);
   
-    if (currentPion != 32) {
-      alert('Le total doit être exactement 32 pièces noires ' + currentPion);
-      return;
-    }
+  
     console.log('Configuration du jeu:', gameConfig);
     // Local Storage
     localStorage.setItem(LocalStorage.START_GAME,1);
@@ -61,10 +55,6 @@ const JeuxPage = () => {
             onChange={(e) => handleInputChange('username', e.target.value)}
           />
         </div>
-
-        
-
-      
 
         <div className={`total-display ${currentPion === 32 ? 'total-valid' : 'total-invalid'}`}>
           Total : {currentPion} / 32 pièces noires
