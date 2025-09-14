@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import WelcomePallette from '../components/WelcomePallette';
 import { LocalStorage } from '../config/localStorage';
@@ -15,6 +15,16 @@ const JeuxPage = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    testSocket()
+  }, [])
+
+  function testSocket() {
+  //  alert("JE SUIS COOL")
+  }
+
+
+
   const handleInputChange = (field, value) => {
     setGameConfig(prev => ({
       ...prev,
@@ -25,27 +35,23 @@ const JeuxPage = () => {
   const [currentPion, setCurrentPion] = useState(0);
 
   const handleStartGame = () => {
-    if (!gameConfig.username.trim()) {
-      alert('Veuillez entrer un nom d\'utilisateur');
-      return;
-    }
-    //alert('Le total doit être exactement 32 pièces noires ' + currentPion);
-  
-  
-    console.log('Configuration du jeu:', gameConfig);
-    // Local Storage
-    localStorage.setItem(LocalStorage.START_GAME,1);
-   
-    // console.log(positions)
     
-    window.socket.send(JSON.stringify({
-      "action": "startGame",
-      "username": gameConfig.username ,
-      "data": {
-          positions
-      }
-    }))
-    navigate('/home')
+  
+      window.socket.send(JSON.stringify({
+        "action": "startGame",
+        "username": gameConfig.username ,
+        "data": {
+            positions
+        }
+      }))
+    
+    
+      window.socket.onmessage = function (event) {
+       // alert("Received message from WebSocket server:", event.data);
+        console.log("Received message from WebSocket server:", event.data);
+      };
+
+     
 
   };
 

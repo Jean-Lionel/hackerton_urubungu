@@ -16,9 +16,9 @@ const Pallete = ({user}) => {
       }}
     >
     
-      {cases.map((e) => (  
+      {cases.map((e, index) => (  
         
-        <img key={e.id} style={{ 
+        <img key={index} style={{ 
             filter: `opacity(0.80) drop-shadow(0 0 0 ${user.color})`, 
             cursor: "pointer",
 

@@ -28,7 +28,7 @@ const IntlApp = () => {
                         messages = KIRUNDI
     }
     return (
-              <IntlProvider messages={messages} locale={locale} defaultLocale="ki">
+              <IntlProvider messages={messages} locale="en-IN" defaultLocale="en-IN">
                         <App />
               </IntlProvider>
     )
