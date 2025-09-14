@@ -2,7 +2,9 @@
 
 const Pallete = ({user}) => {
 
-  const cases = user.cases.map((e) => isNaN(e) ? 0 : e);
+  const cases = user.cases.map((e) =>
+    (isNaN(e) || e === null || e === undefined || e === "" || e === "0" || e > 32)
+    ? 0 : parseInt(e) > 15 ? 15 : parseInt(e)) ;
 
   return (
     <div

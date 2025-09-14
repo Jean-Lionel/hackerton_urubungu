@@ -5,6 +5,7 @@ import Pallete from '../components/Palette.jsx';
 import Agapata from '../components/Agapata.jsx';
 import ApiService from '../services/api';
 import { API_CONFIG } from '../config/config.js';
+import { LocalStorage } from '../config/localStorage.js';
 
 const HomePage = () => {
 
@@ -19,11 +20,7 @@ const HomePage = () => {
       cases : [0,0,0,8,0,0,0,7,0,0,0,0,0,0,0,0],
       color : "blue"
     },
-    {
-      id : 3,
-      cases : [0,0,0,0,4,0,0,0,5,0,0,0,0,0,0,0],
-      color : "green"
-    }
+   
   ]);
 
     useEffect(() =>  {
@@ -31,8 +28,28 @@ const HomePage = () => {
     }, []);
 
     const loadData = async () => {
-      const response = await ApiService.get(API_CONFIG.ENDPOINTS.TEST);
-      console.log("Les donnes"+ response.data);
+      // if in local storate state game = 1
+      if(localStorage.getItem(LocalStorage.START_GAME) === "1") {
+        // Get Current Position 
+        const positions = localStorage.getItem(LocalStorage.UMUKENYURO);
+        const currentPion = localStorage.getItem(LocalStorage.CURRENT_PION);
+        const username = localStorage.getItem(LocalStorage.USERNAME);
+        console.log("positions",positions);
+        console.log("currentPion", currentPion);
+      
+        setUsers([
+          {
+            id : 1,
+            cases : [1,0,0,8,0,0,2,0,0,0,0,0,0,0,0,0],
+            color : "red"
+          },
+          {
+            id : 2,
+            cases : [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            color : "blue"
+          },
+        ]);
+      }
     }
   return (
     <div>
