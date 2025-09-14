@@ -2,6 +2,8 @@
 
 const Pallete = ({user}) => {
 
+  const cases = user.cases.map((e) => isNaN(e) ? 0 : e);
+
   return (
     <div
       style={{
@@ -12,7 +14,8 @@ const Pallete = ({user}) => {
       }}
     >
     
-      {user.cases.map((e) => (   
+      {cases.map((e) => (  
+        
         <img style={{ 
             filter: `opacity(0.80) drop-shadow(0 0 0 ${user.color})`, 
             cursor: "pointer",
