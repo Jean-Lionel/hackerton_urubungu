@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-// import useNavigate from 'react-router-dom';
+    import { useNavigate } from 'react-router-dom';
 
 const JeuxPage = () => {
   const [gameConfig, setGameConfig] = useState({
     username: '',
-    case1: 0,
-    case2: 0,
-    case3: 0,
-    case4: 0
+    case1: '',
+    case2: '',
+    case3: '',
+    case4: ''
   });
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleInputChange = (field, value) => {
     setGameConfig(prev => ({
